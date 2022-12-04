@@ -17,4 +17,4 @@ for pair in actual_input.splitlines():
     total_overlap += 1 if (all(x in r1 for x in r2) or all(x in r2 for x in r1)) else 0
     partial_overlap += 1 if (any(x in r1 for x in r2) or any(x in r2 for x in r1)) else 0
 print(f"Part 1: {total_overlap}")
-print(f"Part 1: {partial_overlap}")
+print(f"Part 2: {partial_overlap}")
