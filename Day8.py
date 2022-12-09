@@ -60,7 +60,6 @@ def count_trees(base, trees):
 scenic_grid = np.array([[0 for y in x] for x in actual_input.splitlines()])
 for y in range(0, height_grid.shape[0]):
     for x in range(0, height_grid.shape[1]):
-        aaaa = height_grid[1][2]
         score = []
         if not x or not y:
             score.append(0)
@@ -69,17 +68,10 @@ for y in range(0, height_grid.shape[0]):
         else:
             if x == 3 and y == 2:
                 pass
-            up = np.flip(height_grid[:, y][:x])
             score.append(count_trees(height_grid[x][y], np.flip(height_grid[:, y][:x])))  # up
-            left = np.flip(height_grid[x][:y])
             score.append(count_trees(height_grid[x][y], np.flip(height_grid[x][:y])))  # left
-            down = height_grid[:, y][x + 1:]
             score.append(count_trees(height_grid[x][y], height_grid[:, y][x + 1:]))  # down
-            right = height_grid[x][y + 1:]
             score.append(count_trees(height_grid[x][y], height_grid[x][y + 1:]))  # right
-        try:
             scenic_grid[x][y] = np.prod(score)
-        except Exception as err:
-            pass
-        pass
+
 print(f"Part 2: {np.amax(scenic_grid)}")
