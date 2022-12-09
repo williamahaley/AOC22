@@ -66,8 +66,6 @@ for y in range(0, height_grid.shape[0]):
         elif x == height_grid.shape[1]-1 or y == height_grid.shape[0]-1:
             score.append(0)
         else:
-            if x == 3 and y == 2:
-                pass
             score.append(count_trees(height_grid[x][y], np.flip(height_grid[:, y][:x])))  # up
             score.append(count_trees(height_grid[x][y], np.flip(height_grid[x][:y])))  # left
             score.append(count_trees(height_grid[x][y], height_grid[:, y][x + 1:]))  # down
